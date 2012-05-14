@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c50a5f4c-458d-406a-b9ff-9276567bcb88}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Plugins">
+      <UniqueIdentifier>{b983bf62-9cad-41a3-ad68-ccf40812b17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Conversion">
+      <UniqueIdentifier>{93eae96a-731b-4204-ad30-c2517167d2ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Quantizers">
+      <UniqueIdentifier>{488f3e25-36e1-4e9a-a4d3-527cda81bc76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DeprecationMgr">
+      <UniqueIdentifier>{dc0456e9-4112-4f17-ba09-427d7a515c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MultiPaging">
+      <UniqueIdentifier>{1352dbc7-c8f5-44fe-b882-9a57a7242857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Metadata">
+      <UniqueIdentifier>{e6dab694-17df-4ef8-83db-0c775b461ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{12b2f2b0-80c1-444b-9a9c-e6ef74b0c7ae}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Toolkit Files">
+      <UniqueIdentifier>{86cd342a-386c-4f75-8e61-04e3f6b19dce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\FreeImage\BitmapAccess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ColorLookup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\FreeImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\FreeImageC.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\FreeImageIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\GetType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\MemoryIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PixelAccess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\J2KHelper.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\MNGHelper.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Plugin.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginBMP.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginCUT.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginDDS.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginEXR.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginG3.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginGIF.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginHDR.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginICO.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginIFF.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginJ2K.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginJNG.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginJP2.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginJPEG.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginKOALA.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginMNG.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPCD.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPCX.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPFM.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPICT.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPNG.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPNM.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginPSD.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginRAS.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginRAW.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginSGI.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginTARGA.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginTIFF.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginWBMP.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginXBM.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PluginXPM.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\PSDParser.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\TIFFLogLuv.cpp">
+      <Filter>Source Files\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion16_555.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion16_565.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion24.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion32.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion4.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Conversion8.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ConversionFloat.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ConversionRGB16.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ConversionRGBF.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ConversionType.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ConversionUINT16.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\Halftoning.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\tmoColorConvert.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\tmoDrago03.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\tmoFattal02.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\tmoReinhard05.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ToneMapping.cpp">
+      <Filter>Source Files\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\NNQuantizer.cpp">
+      <Filter>Source Files\Quantizers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\WuQuantizer.cpp">
+      <Filter>Source Files\Quantizers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DeprecationManager\Deprecated.cpp">
+      <Filter>Source Files\DeprecationMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DeprecationManager\DeprecationMgr.cpp">
+      <Filter>Source Files\DeprecationMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\CacheFile.cpp">
+      <Filter>Source Files\MultiPaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\MultiPage.cpp">
+      <Filter>Source Files\MultiPaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImage\ZLibInterface.cpp">
+      <Filter>Source Files\MultiPaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\Exif.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\FIRational.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\FreeImageTag.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\IPTC.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\TagConversion.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\TagLib.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Metadata\XTIFF.cpp">
+      <Filter>Source Files\Metadata</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Background.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\BSplineRotate.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Channels.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\ClassicRotate.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Colors.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\CopyPaste.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Display.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Flip.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\JPEGTransform.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\MultigridPoissonSolver.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Rescale.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FreeImageToolkit\Resize.cpp">
+      <Filter>Toolkit Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FreeImage.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\CacheFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DeprecationManager\DeprecationMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Metadata\FIRational.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FreeImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FreeImageIO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Metadata\FreeImageTag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FreeImage\PSDParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Quantizers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ToneMapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FreeImageToolkit\Resize.h">
+      <Filter>Toolkit Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Todo.txt" />
+    <None Include="Whatsnew.txt" />
+  </ItemGroup>
+</Project>
