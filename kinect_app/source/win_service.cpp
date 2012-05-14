@@ -1,4 +1,5 @@
 #include "win_service.h"
+#include "event.h"
 
 #include <tchar.h>
 #include <strsafe.h>
@@ -33,9 +34,9 @@ private:
 						 DWORD dwWaitHint);
 
 private:
-	SERVICE_STATUS            m_svcStatus; 
-	SERVICE_STATUS_HANDLE     m_svcStatusHandle; 
-	HANDLE                    m_svcStopEvent;
+	SERVICE_STATUS m_svcStatus; 
+	SERVICE_STATUS_HANDLE m_svcStatusHandle; 
+	kinect_app::Event m_svcStopEvent;
 	std::auto_ptr<kinect_app::ServiceApp> m_app;
 	DWORD dwCheckPoint;
 };
@@ -54,7 +55,7 @@ void __stdcall SvcCtrlHandler(DWORD dwCtrl)
 }
 
 
-WinService::WinService(): m_svcStopEvent(NULL), dwCheckPoint(1)
+WinService::WinService(): dwCheckPoint(1)
 {
 }
 
@@ -69,7 +70,7 @@ void WinService::Install()
 	SC_HANDLE schService;
 	TCHAR szPath[MAX_PATH];
 
-	if(!GetModuleFileName(NULL, szPath, MAX_PATH))
+	if (!GetModuleFileName(NULL, szPath, MAX_PATH))
 	{
 		printf("Cannot install service (%d)\n", GetLastError());
 		return;
@@ -177,33 +178,23 @@ void __stdcall WinService::Main(DWORD dwArgc, LPTSTR *lpszArgv)
 }
 
 void WinService::Init(DWORD dwArgc, LPTSTR *lpszArgv)
+try
 {
-	m_svcStopEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
-
-	if ( m_svcStopEvent == NULL)
-	{
-		ReportSvcStatus( SERVICE_STOPPED, NO_ERROR, 0 );
-		return;
-	}
-
 	m_app->Init();
-
-	ReportSvcStatus(SERVICE_RUNNING, NO_ERROR, 0);
 
 	m_app->Start();
 
-	while(1)
-	{
-		// Check whether to stop the service.
+	ReportSvcStatus(SERVICE_RUNNING, NO_ERROR, 0);
 
-		WaitForSingleObject(m_svcStopEvent, INFINITE);
+	m_svcStopEvent.Wait();
 
-		m_app->Deinit();
+	m_app->Deinit();
 
-		ReportSvcStatus(SERVICE_STOPPED, NO_ERROR, 0);
-
-		return;
-	}
+	ReportSvcStatus(SERVICE_STOPPED, NO_ERROR, 0);
+}
+catch (...)
+{
+	ReportSvcStatus(SERVICE_STOPPED, NO_ERROR /*wtf?*/, 0);
 }
 
 void WinService::ReportSvcStatus( DWORD dwCurrentState,
@@ -238,29 +229,28 @@ void WinService::ReportSvcStatus( DWORD dwCurrentState,
 	SetServiceStatus(m_svcStatusHandle, &m_svcStatus);
 }
 
-void __stdcall WinService::CtrlHandler( DWORD dwCtrl )
+void __stdcall WinService::CtrlHandler(DWORD dwCtrl)
 {
-	// Handle the requested control code. 
-
-	switch(dwCtrl) 
-	{  
-		case SERVICE_CONTROL_STOP: 
+	switch (dwCtrl) 
+	{
+	case SERVICE_CONTROL_STOP: 
+		{
 			this->ReportSvcStatus(SERVICE_STOP_PENDING, NO_ERROR, 0);
 
-			// Signal the service to stop.
+			m_svcStopEvent.Set();
 
-			SetEvent(m_svcStopEvent);
 			this->ReportSvcStatus(m_svcStatus.dwCurrentState, NO_ERROR, 0);
          
 			return;
+		}
  
-		case SERVICE_CONTROL_INTERROGATE: 
-			break; 
+	case SERVICE_CONTROL_INTERROGATE: 
+		break; 
  
-		default: 
-			break;
-	} 
-   
+	default: 
+		break;
+	}
+
 }
 
 void WinService::ReportEvent(LPTSTR szFunction) 
@@ -271,7 +261,7 @@ void WinService::ReportEvent(LPTSTR szFunction)
 
 	hEventSource = RegisterEventSource(NULL, SVCNAME);
 
-	if( NULL != hEventSource )
+	if (NULL != hEventSource)
 	{
 		StringCchPrintf(Buffer, 80, TEXT("%s failed with %d"), szFunction, GetLastError());
 

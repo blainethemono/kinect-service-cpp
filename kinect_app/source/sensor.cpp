@@ -121,7 +121,7 @@ try
         break;
 			
 	case WAIT_OBJECT_0:
-		assert(false);
+		return false;
 		break;
 
     case WAIT_OBJECT_0 + 1:
