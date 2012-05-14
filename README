@@ -1,0 +1,21 @@
+There followig dependenices should be added at root directory:
+
+1. Microsoft Kinect SDK
+Source: @todo
+Add env vars: @todo
+
+2. Microsoft SDK 7
+Source: @todo
+Add env vars: @todo
+
+3. Jsconcpp library.
+Source: http://downloads.sourceforge.net/project/jsoncpp/jsoncpp/0.5.0/jsoncpp-src-0.5.0.tar.gz
+Put at: /jsoncpp-src-0.5.0
+
+4. Libwebsockets library.
+Source: http://git.warmcat.com/cgi-bin/cgit/libwebsockets/snapshot/support-protocol-v8-chrome-15-firefox-6.tar.gz
+Put at: /support-protocol-v8-chrome-15-firefox-6
+
+5. FreeImage library.
+Source: http://downloads.sourceforge.net/freeimage/FreeImage3153.zip
+Put at: /FreeImage
