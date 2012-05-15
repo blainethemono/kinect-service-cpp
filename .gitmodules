@@ -1,0 +1,6 @@
+[submodule "jsoncpp-src-0.5.0"]
+	path = jsoncpp-src-0.5.0
+	url = https://github.com/makerbot/json-cpp.git
+[submodule "support-protocol-v8-chrome-15-firefox-6"]
+	path = support-protocol-v8-chrome-15-firefox-6
+	url = https://github.com/davidgaleano/libwebsockets.git
