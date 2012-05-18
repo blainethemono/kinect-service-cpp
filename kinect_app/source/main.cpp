@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 
+#ifdef _DEBUG
+
 struct LeaksReport
 {
 	~LeaksReport()
@@ -13,6 +15,8 @@ struct LeaksReport
 };
 
 LeaksReport Leaks;
+
+#endif
 
 namespace
 {
@@ -69,6 +73,8 @@ int main(int argc, char** argv)
 
 	if (strcmp(argv[1], "console") == 0)
 	{
+		// Console mode.
+
 		kinect_app::app_flags::Mask settings(0);
 
 		if (argc > 2)
@@ -105,9 +111,14 @@ int main(int argc, char** argv)
 
 		return 0;
 	}
+	else
+	{
+		// Service mode.
 
-	std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(kinect_app::app_flags::Default)); // @todo:
-	kinect_app::StartService(app);
+		std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(kinect_app::app_flags::Default));
+		
+		kinect_app::StartService(app);
+	}
 
 	return 0;
 }

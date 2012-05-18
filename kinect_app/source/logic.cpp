@@ -8,13 +8,16 @@
 #include <string>
 #include <sstream>
 
-#define NUI_OUT_SKEL_POS(d, idx)\
-	"[" << d.SkeletonPositions[idx].x << ";" << d.SkeletonPositions[idx].y << ";" << d.SkeletonPositions[idx].z << "]"
+#define NUI_OUT_SKEL_POS(d, idx) "{" << d.SkeletonPositions[idx].x << "," << d.SkeletonPositions[idx].y << "," << d.SkeletonPositions[idx].z << "}"
 
 namespace kinect_app
 {
+namespace
+{
+const char EmptyResponse[] = "[]";
+}
 
-Engine::Engine()
+Engine::Engine(): m_processingMode(NonBlockingMode)
 {
 }
 
@@ -36,7 +39,7 @@ void Engine::StartNetworkService()
 void Engine::ConsumeDepthInput(const NUI_IMAGE_FRAME& frame)
 try
 {
-	static image::Bitmap bitmap(NUI_IMAGE_RESOLUTION_640x480); // @todo: make class member, pass resolutaion as parameter
+	static image::Bitmap bitmap(NUI_IMAGE_RESOLUTION_640x480); // @todo: make class member, pass resolution as parameter
 
 	bitmap.Write(frame);
 
@@ -80,8 +83,6 @@ catch (...)
 // ServiceCallback
 void Engine::OnDataReceived(const char* data, size_t size, network::Response& response)
 {
-	KINECT_TRACE_DBG("Engine::OnDataReceived");
-
 	std::istringstream stream(
 		reinterpret_cast<const char*>(data),
 		std::istringstream::in
@@ -110,59 +111,66 @@ void Engine::OnDataReceived(const char* data, size_t size, network::Response& re
 	{
 		// @todo: handle error
 	}
-
-	KINECT_TRACE_DBG("Engine::OnDataReceived finished");
 }
 
 void Engine::OnSkeletonRequest(network::Response& response)
 {
-	KINECT_TRACE_DBG("Engine::OnSkeletonRequest");
+	KINECT_TRACE_DBG("Processing request");
 	{
 		ScopedLock<CriticalSection> lock(m_skeletonGuard);
 		
-		m_skeletonReady.Sleep(m_skeletonGuard);
+		if (m_processingMode == BlockingMode)
+		{
+			m_skeletonReady.Sleep(m_skeletonGuard);
+		}
 
 		m_skeletonOut = m_skeletonAsString;
+		m_skeletonAsString = EmptyResponse;
 	}
-	
-	KINECT_TRACE_DBG("Engine::OnSkeletonRequest: got skeleton");
 
-	Json::Value root(m_skeletonOut.c_str());
-	Json::FastWriter writer;
-	const std::string& msg = writer.write(root);
+	response.Send(m_skeletonOut.c_str(), m_skeletonOut.size());
 
-	response.Send(msg.c_str(), msg.size());
-
-	KINECT_TRACE_DBG("Engine::OnSkeletonRequest: response sent");
+	KINECT_TRACE_DBG("Response sent");
 }
 
 void Engine::OnDepthRequest(network::Response& response)
 {
+	KINECT_TRACE_DBG("Processing request");
 	{
 		ScopedLock<CriticalSection> lock(m_skeletonGuard);
 
-		m_depthReady.Sleep(m_skeletonGuard);
+		if (m_processingMode == BlockingMode)
+		{
+			m_depthReady.Sleep(m_skeletonGuard);
+		}
 
 		m_depthOut = m_depthAsString;
+		m_depthAsString = EmptyResponse;
 	}
 
-	Json::Value root(m_depthOut.c_str());
-	Json::FastWriter writer;
-	const std::string& msg = writer.write(root);
+	response.Send(m_depthOut.c_str(), m_depthOut.size());
 	
-	response.Send(msg.c_str(), msg.size());
+	KINECT_TRACE_DBG("Response sent");
 }
-	
+
 void Engine::ComposeDepthString(const BYTE* image, size_t imageSize, std::string& out)
 {
 	out.clear();
 	out.append("Depth:[").append(detail::base64_encode(reinterpret_cast<const unsigned char*>(image), imageSize)).append("]");
 }
 
+long long GetTimeStamp()
+{
+	static long long time(0);
+	return time++; // @todo:
+}
+
 void Engine::ComposeSkeletonString(const NUI_SKELETON_FRAME& frame, std::string& str)
 {
 	std::stringstream out;
+	const long long timeStamp = GetTimeStamp(); // @todo
 
+	out << "[";
 	for (size_t i = 0 ; i < NUI_SKELETON_COUNT ; ++i)
 	{
 		const NUI_SKELETON_DATA& skelData = frame.SkeletonData[i];
@@ -172,8 +180,13 @@ void Engine::ComposeSkeletonString(const NUI_SKELETON_FRAME& frame, std::string&
 			continue;
 		}
 
-		out << "Skeleton:";
-		out << "["
+		if (i > 0)
+		{
+			out << ",";
+		}
+
+		out << "{"
+			<< "id:'" << skelData.dwTrackingID << "',timestamp:'" << timeStamp << "',data:["
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_HIP_CENTER)
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_SPINE)
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_SHOULDER_CENTER)
@@ -194,10 +207,12 @@ void Engine::ComposeSkeletonString(const NUI_SKELETON_FRAME& frame, std::string&
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_KNEE_RIGHT)
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_ANKLE_RIGHT)
 			<< NUI_OUT_SKEL_POS(skelData, NUI_SKELETON_POSITION_FOOT_RIGHT)
-		<< "];";
+		<< "]}";
 
-		break; // @todo: wtf??
+		KINECT_TRACE_DBG("Skeleton tracked");
+		KINECT_TRACE_DBG(skelData.dwTrackingID);
 	}
+	out << "]";
 	str = out.str();
 }
 

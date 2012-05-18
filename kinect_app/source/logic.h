@@ -50,6 +50,13 @@ private:
 
 	ConditionVariable m_skeletonReady;
 	ConditionVariable m_depthReady;
+
+	enum RequestProcessingMode
+	{
+		BlockingMode,    // wait until frame is ready
+		NonBlockingMode  // poll frame, get empty response in no frame ready yet
+	};
+	RequestProcessingMode m_processingMode;
 };
 
 }
