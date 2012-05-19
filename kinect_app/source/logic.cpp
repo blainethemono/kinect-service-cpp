@@ -3,7 +3,7 @@
 #include "bitmap.h"
 #include "trace.h"
 
-#include <jsoncpp/include/jsoncpp.h>
+#include <jsoncpp.h>
 
 #include <string>
 #include <sstream>
