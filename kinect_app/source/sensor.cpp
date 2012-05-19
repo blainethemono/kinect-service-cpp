@@ -93,7 +93,7 @@ bool NuiSensor::WaitEvents(event_mask& kind)
         break;
 			
 	case WAIT_OBJECT_0:
-		assert(false); // @todo
+		KINECT_TRACE_INF("Stop request");
 		break;
 
     case WAIT_OBJECT_0 + 1:

@@ -22,6 +22,7 @@ socket.onmessage = _messageHandler;
 	
 function _connectHandler() {
 	log.value += 'connected\n';
+	setInterval(function() {socket.send(msg)}, 33);
 };
 
 function _disconnectHandler() {

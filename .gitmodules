@@ -4,3 +4,9 @@
 [submodule "support-protocol-v8-chrome-15-firefox-6"]
 	path = support-protocol-v8-chrome-15-firefox-6
 	url = https://github.com/davidgaleano/libwebsockets.git
+[submodule "extern/libwebsockets"]
+	path = extern/libwebsockets
+	url = https://github.com/davidgaleano/libwebsockets.git
+[submodule "extern/jsoncpp"]
+	path = extern/jsoncpp
+	url = https://github.com/makerbot/json-cpp.git

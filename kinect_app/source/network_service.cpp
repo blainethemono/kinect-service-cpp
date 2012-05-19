@@ -7,7 +7,7 @@
 #include "event.h"
 #include "trace.h"
 
-#include <libwebsockets/libwebsockets.h>
+#include <libwebsockets.h>
 
 #include <memory>
 #include <sstream>

@@ -1,4 +1,5 @@
 #include "app.h"
+#include "trace.h"
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -20,6 +21,8 @@ LeaksReport Leaks;
 
 namespace
 {
+
+const unsigned short DefaultPort = 7681;
 
 class ConsoleHandler
 {
@@ -58,6 +61,7 @@ BOOL WINAPI HandlerRoutine(DWORD eventType)
 }
 
 int main(int argc, char** argv)
+try
 {
 	if (strcmp(argv[1], "install") == 0)
 	{
@@ -97,7 +101,7 @@ int main(int argc, char** argv)
 			settings = kinect_app::app_flags::Default;
 		}
 
-		std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(settings));
+		std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(settings, DefaultPort));
 
 		app->Init();
 
@@ -115,10 +119,18 @@ int main(int argc, char** argv)
 	{
 		// Service mode.
 
-		std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(kinect_app::app_flags::Default));
+		std::auto_ptr<kinect_app::ServiceApp> app(new kinect_app::App(kinect_app::app_flags::Default, DefaultPort)); // @todo: make port value configurable
 		
 		kinect_app::StartService(app);
 	}
 
 	return 0;
 }
+catch (unsigned short e)
+{
+	std::stringstream err;
+	err << "Application runtime error: code = " << std::hex << e;
+
+	KINECT_TRACE_ERR(err.str());
+}
+

@@ -29,9 +29,9 @@ Engine::~Engine()
 	}
 }
 
-void Engine::StartNetworkService()
+void Engine::StartNetworkService(unsigned short port)
 {
-	m_ns = network::CreateWebsocketService(7681);
+	m_ns = network::CreateWebsocketService(port);
 
 	m_ns->Start(*this);
 }

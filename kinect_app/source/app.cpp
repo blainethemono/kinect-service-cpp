@@ -3,8 +3,9 @@
 namespace kinect_app
 {
 
-App::App(app_flags::Mask settings)
+App::App(app_flags::Mask settings, unsigned short port)
 	: m_settings(settings)
+	, m_port(port)
 	, m_workingThread(NULL)
 	, m_sensor(m_engine)
 {
@@ -18,7 +19,7 @@ App::~App()
 void App::Init()
 try
 {
-	m_engine.StartNetworkService();
+	m_engine.StartNetworkService(m_port);
 }
 catch (unsigned short)
 {
@@ -41,10 +42,10 @@ void App::Start()
 
 void App::Stop()
 {
+	m_sensor.Shutdown();
+
 	if (m_workingThread)
 	{
-		m_sensor.Shutdown();
-
 		::WaitForSingleObject(m_workingThread, 15000);
 	}
 }

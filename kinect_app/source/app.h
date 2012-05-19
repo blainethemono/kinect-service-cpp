@@ -32,7 +32,7 @@ namespace app_flags
 class App : public kinect_app::ServiceApp
 {
 public:
-	App(app_flags::Mask settings);
+	App(app_flags::Mask settings, unsigned short port);
 	~App();
 
 	virtual void Init();
@@ -46,7 +46,8 @@ private:
 	void RunInternal();
 
 private:
-	app_flags::Mask m_settings;
+	const app_flags::Mask m_settings;
+	const unsigned short m_port;
 	Event m_stopEvent;
 	HANDLE m_workingThread;
 	Event m_workingThreadStarted;

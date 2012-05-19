@@ -18,7 +18,7 @@ struct ServiceApp
 	// starts thread performing synchronous loop, must return after working thread started
 	virtual void Start() = 0;
 
-	// synchronous loop
+	// synchronous loop, call if don't need to do anything else in your app
 	virtual void Run() = 0;
 
 	// stops synchronous loop, must wait working thread stopped

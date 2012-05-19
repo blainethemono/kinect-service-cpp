@@ -19,7 +19,7 @@ public:
 	Engine();
 	~Engine();
 
-	void StartNetworkService();
+	void StartNetworkService(unsigned short port);
 
 	// SensorCallbacks
 	virtual void ConsumeDepthInput(const NUI_IMAGE_FRAME& frame);
