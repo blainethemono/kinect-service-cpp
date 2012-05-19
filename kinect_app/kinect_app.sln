@@ -15,8 +15,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kinect_app", "kinect_app.vc
 		{9E219DF2-315D-478E-8A07-8960C377CE1E} = {9E219DF2-315D-478E-8A07-8960C377CE1E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZLib", "..\extern\support-protocol-v8-chrome-15-firefox-6\win32port\zlib\ZLib.vcxproj", "{4156FC56-8443-2973-4FE2-A0BB2C621525}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibJPEG", "..\extern\FreeImage\Source\LibJPEG\LibJPEG.2010.vcxproj", "{5E1D4E5F-E10C-4BA3-B663-F33014FD21D9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibTIFF4", "..\extern\FreeImage\Source\LibTIFF4\LibTIFF4.2010.vcxproj", "{EC085CBD-E9C3-477F-9A97-CB9D5DA30E27}"
@@ -34,6 +32,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibWebSocket", "..\extern\libwebsockets.vcxproj", "{332BF17E-FD30-4363-975A-AA731A827B4F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibJSON", "..\extern\lib_json.vcxproj", "{B84F7231-16CE-41D8-8C08-7B523FF4225B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZLib", "..\extern\ZLib.vcxproj", "{4156FC56-8443-2973-4FE2-A0BB2C621525}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,27 +69,6 @@ Global
 		{47AA4887-CB9C-4E29-BB7C-BCCF23578CF4}.Release|Win32.ActiveCfg = Release|Win32
 		{47AA4887-CB9C-4E29-BB7C-BCCF23578CF4}.Release|Win32.Build.0 = Release|Win32
 		{47AA4887-CB9C-4E29-BB7C-BCCF23578CF4}.Release|x64.ActiveCfg = Release|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|Win32.ActiveCfg = Debug static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|Win32.Build.0 = Debug static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|x64.ActiveCfg = Debug static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|Win32.ActiveCfg = Debug|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|Win32.Build.0 = Debug|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|x64.ActiveCfg = Debug|x64
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|x64.Build.0 = Debug|x64
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|Win32.ActiveCfg = Debug|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|Win32.Build.0 = Debug|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|x64.ActiveCfg = Debug|x64
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|x64.Build.0 = Debug|x64
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|Win32.ActiveCfg = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|Win32.Build.0 = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|x64.ActiveCfg = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|Win32.ActiveCfg = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|Win32.Build.0 = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|x64.ActiveCfg = Release static|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|Win32.ActiveCfg = Release|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|Win32.Build.0 = Release|Win32
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|x64.ActiveCfg = Release|x64
-		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|x64.Build.0 = Release|x64
 		{5E1D4E5F-E10C-4BA3-B663-F33014FD21D9}.Debug static|Win32.ActiveCfg = Debug|Win32
 		{5E1D4E5F-E10C-4BA3-B663-F33014FD21D9}.Debug static|Win32.Build.0 = Debug|Win32
 		{5E1D4E5F-E10C-4BA3-B663-F33014FD21D9}.Debug static|x64.ActiveCfg = Debug|Win32
@@ -255,6 +234,26 @@ Global
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.ActiveCfg = Release|Win32
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.Build.0 = Release|Win32
 		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|x64.ActiveCfg = Release|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|Win32.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|Win32.Build.0 = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug static|x64.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|Win32.Build.0 = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Debug|x64.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|Win32.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|Win32.Build.0 = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.dummy|x64.ActiveCfg = Debug|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|Win32.Build.0 = Release DLL|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|x64.ActiveCfg = Release DLL|x64
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release DLL|x64.Build.0 = Release DLL|x64
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|Win32.ActiveCfg = Release static|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|Win32.Build.0 = Release static|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release static|x64.ActiveCfg = Release static|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|Win32.ActiveCfg = Release|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|Win32.Build.0 = Release|Win32
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|x64.ActiveCfg = Release|x64
+		{4156FC56-8443-2973-4FE2-A0BB2C621525}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
